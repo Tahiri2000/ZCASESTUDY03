@@ -1,0 +1,8 @@
+@EndUserText.label: 'Zugriffskontrolle PLZ-Bereich Fiori Kunden'
+@MappingRole: true
+define role zcs03_c_customers_dcl {
+
+  grant select on ZCS03_C_CUSTOMERS
+  where INHERITING CONDITIONS FROM ENTITY ZCS03_I_CUSTOMERS_CDS;
+
+}

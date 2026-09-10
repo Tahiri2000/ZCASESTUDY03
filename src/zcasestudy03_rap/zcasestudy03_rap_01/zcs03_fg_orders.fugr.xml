@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>Funktionsgruppe Bestellungen</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZCS03_FG_ORDERSTOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZCS03_FG_ORDERS</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>Z_CS03_FM_CANCEL_ORDERS</FUNCNAME>
+     <SHORT_TEXT>Cancel_Orders</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IV_CUSTOMERID</PARAMETER>
+       <TYP>ZCUSTOMERIDT3</TYP>
+      </RSIMP>
+     </IMPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IV_CUSTOMERID</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

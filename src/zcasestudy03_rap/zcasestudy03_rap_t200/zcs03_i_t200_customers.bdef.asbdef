@@ -1,0 +1,100 @@
+managed implementation in class zbp_cs03_i_t200_customers unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZCS03_I_T200_CUSTOMERS
+persistent table zcs03_customers
+draft table zcs03_t2_cust_d
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master ( global )
+early numbering
+{
+ create ( authorization : global );
+ update;
+ delete;
+
+field ( readonly ) CustomerId;
+
+ draft action Activate optimized;
+ draft action Discard;
+ draft action Edit;
+ draft action Resume;
+ draft determine action Prepare;
+
+ association _Orders { create; with draft; }
+
+ mapping for zcs03_customers corresponding
+ {
+   CustomerId          = CUSTOMERID;
+   Salutation          = SALUTATION;
+   LastName            = LAST_NAME;
+   FirstName           = FIRST_NAME;
+   Company             = COMPANY;
+   Street              = STREET;
+   City                = CITY;
+   Country             = COUNTRY;
+   Postcode            = POSTCODE;
+   AccLock             = ACC_LOCK;
+   LastDate            = LAST_DATE;
+   SalesVolume         = SALES_VOLUME;
+   SalesVolumeTarget   = SALES_VOLUME_TARGET;
+   ChangeRateDate      = CHANGE_RATE_DATE;
+   Fax                 = FAX;
+   Phone               = PHONE;
+   Email               = EMAIL;
+   Currency            = CURRENCY;
+   CurrencyTarget      = CURRENCY_TARGET;
+   Language            = LANGUAGE;
+   Weblogin            = WEBLOGIN;
+   Webpw               = WEBPW;
+   Memo                = MEMO;
+   Url                 = URL;
+   LogId               = LOG_ID;
+   LocalLastChangedAt  = LOCAL_LAST_CHANGED_AT;
+   LastChangedAt       = LAST_CHANGED_AT;
+ }
+}
+
+
+
+define behavior for ZCS03_I_T200_CUSTORDERS
+persistent table zcs03_custorders
+draft table zcs03_t2_cusor_d
+etag dependent by _Customer
+lock dependent by _Customer
+authorization dependent by _Customer
+early numbering
+{
+
+ update;
+ delete;
+
+ field ( readonly ) CustomerId, OrderId;
+
+determination convert_currency on save { field OrderTotal, Currency, TargetCurrency; }
+
+determination setDefaultStatus on modify { create; }
+
+
+ association _Customer { with draft; }
+
+  mapping for ZCS03_CUSTORDERS corresponding
+ {
+   CustomerId              = CUSTOMERID;
+   OrderId                 = ORDERID;
+   OrderDate               = ORDER_DATE;
+   OrderTotal              = ORDER_TOTAL;
+   Discount                = DISCOUNT;
+   Info                    = INFO;
+   Status                  = STATUS;
+   Currency                = CURRENCY;
+   TargetCurrency          = TARGET_CURRENCY;
+   ChangeRateDate          = CHANGE_RATE_DATE;
+   OrderTotalConverted     = ORDER_TOTAL_CONVERTED;
+   ChildLocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+   CreatedBy               = CREATED_BY;
+   LastChangedBy           = LAST_CHANGED_BY;
+ }
+
+}

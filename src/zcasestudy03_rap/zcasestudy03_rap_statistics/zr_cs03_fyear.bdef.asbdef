@@ -1,0 +1,41 @@
+managed implementation in class zbp_r_cs03_fyear unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZR_CS03_FYEAR //alias <alias_name>
+persistent table zcs03_fyear
+draft table zcs03_fyear_d
+lock master total etag LastChangedAt
+authorization master ( instance )
+{
+  create ( authorization : global );
+  update;
+  delete;
+
+  field ( readonly, numbering : managed )
+  FiscalYearId;
+
+  action SetActiveYear;
+  determination deactivateOtherYears on save { field Active; }
+  validation validateActiveYearUnique on save { create; update; field Active; }
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+ mapping for zcs03_fyear corresponding
+  {
+    FiscalYearId         = FISCAL_YEAR_ID;
+    StartDate            = START_DATE;
+    EndDate              = END_DATE;
+    Description          = DESCRIPTION;
+    Active               = ACTIVE;
+    CreatedBy            = CREATED_BY;
+    CreatedAt            = CREATED_AT;
+    LastChangedBy        = LAST_CHANGED_BY;
+    LastChangedAt        = LAST_CHANGED_AT;
+    LocalLastChangedAt   = LOCAL_LAST_CHANGED_AT;
+  }
+}

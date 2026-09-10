@@ -1,0 +1,11 @@
+@Metadata.layer: #CUSTOMER
+annotate view zcs03customers_r with
+{
+
+  @EndUserText.label: 'Kundennummer'
+  CustomerId;
+
+
+  @EndUserText.label: 'VIP'
+  zzvip;
+}

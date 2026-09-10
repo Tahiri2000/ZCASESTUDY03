@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for ZCS03 Customers'
+define service ZCS03_UI_CUSTOMERS {
+  expose entity ZCS03_C_CUSTOMERS;
+}

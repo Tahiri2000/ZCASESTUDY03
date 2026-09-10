@@ -1,0 +1,8 @@
+ @EndUserText.label: 'Zugriffskontrolle PLZ-Bereich Kunden'
+   @MappingRole: true
+   define role zcs03customers_r_dcl {
+
+     grant select on zcs03customers_r
+       where (postcode) = aspect pfcg_auth (zcs03_plz, postcode, actvt = '03');
+
+   }

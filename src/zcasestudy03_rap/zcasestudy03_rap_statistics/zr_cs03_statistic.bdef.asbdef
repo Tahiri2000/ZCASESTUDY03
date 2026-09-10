@@ -1,0 +1,55 @@
+managed implementation in class ZBP_R_CS03_STATISTIC unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZR_CS03_STATISTIC alias ZrCs03Statistic
+persistent table zcs03_statistic
+extensible
+draft table zcs03_sttistic_d
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master ( global )
+{
+  field ( mandatory : create )
+  Classname;
+
+  field ( readonly )
+  LocalLastChangedAt,
+  LastChangedAt,
+  CreatedBy,
+  LastChangedBy,
+  Interface;
+
+  action SetActiveClass;
+  determination deactivateOtherClasses on save { field Active; }
+  determination determineInterface on save { field Classname; }
+  validation validateActiveUnique on save { create; update; field Active; }
+  validation validateClassnameValid on save { field Classname; }
+
+  field ( readonly : update )
+  Classname;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+
+
+  mapping for zcs03_statistic corresponding extensible
+    {
+      Classname          = CLASSNAME;
+      Interface          = INTERFACE;
+      LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+      LastChangedAt      = LAST_CHANGED_AT;
+      CreatedBy          = CREATED_BY;
+      LastChangedBy      = LAST_CHANGED_BY;
+    }
+
+}

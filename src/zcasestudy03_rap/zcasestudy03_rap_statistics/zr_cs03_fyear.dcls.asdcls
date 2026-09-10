@@ -1,0 +1,8 @@
+@EndUserText.label: 'Zugriffskontrolle für ZR_CS03_FYEAR'
+@MappingRole: true
+define role ZR_CS03_FYEAR {
+  grant
+    select
+    on
+    ZR_CS03_FYEAR;
+}

@@ -1,0 +1,75 @@
+@Metadata.layer: #CORE
+
+annotate view ZCS03_C_T200_CUSTORDERS with
+{
+  @UI.facet: [
+    {
+      id: 'GeneralInfo',
+      purpose: #STANDARD,
+      type: #IDENTIFICATION_REFERENCE,
+      label: 'Allgemeine Informationen',
+      position: 10
+    }
+  ]
+
+  @UI: {
+    lineItem: [{ position: 5 }],
+    identification: [{ position: 5 }],
+    selectionField: [{ position: 5 }]
+  }
+  CustomerId;
+
+  @UI: {
+    lineItem: [{ position: 10 }],
+    identification: [{ position: 10 }],
+    selectionField: [{ position: 10 }]
+  }
+  OrderId;
+
+  @UI: {
+    lineItem: [{ position: 20 }],
+    identification: [{ position: 20 }],
+    selectionField: [{ position: 20 }]
+  }
+  OrderDate;
+
+  @UI: {
+    lineItem: [{ position: 30, label: 'Summe der Bestellung' }],
+    identification: [{ position: 30, label: 'Summe der Bestellung' }],
+    selectionField: [{ position: 30 }]
+  }
+  OrderTotal;
+
+  @UI: {
+    lineItem: [{ position: 40, label: 'Rabatt' }],
+    identification: [{ position: 40, label: 'Rabatt' }],
+    selectionField: [{ position: 40 }]
+  }
+  Discount;
+
+  @UI: {
+    lineItem: [{ position: 50 }],
+    identification: [{ position: 50 }],
+    selectionField: [{ position: 50 }]
+  }
+  Status;
+
+  @UI: {
+    lineItem: [{ position: 60 }],
+    identification: [{ position: 60 }]
+  }
+  Currency;
+
+  @UI: {
+  lineItem: [{ position: 60 }],
+    identification: [{ position: 65 }]
+  }
+  TargetCurrency;
+
+  @UI: {
+    lineItem: [{ position: 70, label: 'Umsatz Zielwährung' }],
+    identification: [{ position: 70, label: 'Umsatz Zielwährung' }]
+  }
+  OrderTotalConverted;
+
+}

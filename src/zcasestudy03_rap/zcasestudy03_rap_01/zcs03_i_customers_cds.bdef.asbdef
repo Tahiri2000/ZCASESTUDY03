@@ -1,0 +1,78 @@
+managed implementation in class zbp_cs03_i_customers_cds unique;
+
+strict ( 2 );
+
+with draft;
+
+define behavior for ZCS03_I_CUSTOMERS_CDS
+
+persistent table zcs03_customers
+draft table zcs03_cust_d
+
+lock master
+total etag LastChangedAt
+etag master LocalLastChangedAt
+authorization master ( global )
+early numbering
+
+{
+  create;
+  update;
+  delete;
+
+  field ( readonly ) Customerid;
+  field ( readonly ) City;
+
+  // field ( readonly ) SalesVolume;
+  // field ( readonly ) SalesVolumeTarget;
+
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  determination determineCity on save { create; field Postcode; }
+
+  determination normalizeUrl on save { field Url; }
+
+  validation validateEmailAddress on save { create; field email; }
+
+  static action cancelOrders parameter ZCS03_A_CANCELORDERS;
+
+  action ShowStatistic;
+
+  mapping for zcs03_customers corresponding
+    {
+      Customerid         = CUSTOMERID;
+      Salutation         = SALUTATION;
+      LastName           = LAST_NAME;
+      FirstName          = FIRST_NAME;
+      Company            = COMPANY;
+      Street             = STREET;
+      City               = CITY;
+      Country            = COUNTRY;
+      Postcode           = POSTCODE;
+      AccLock            = ACC_LOCK;
+      LastDate           = LAST_DATE;
+      SalesVolume        = SALES_VOLUME;
+      SalesVolumeTarget  = SALES_VOLUME_TARGET;
+      ChangeRateDate     = CHANGE_RATE_DATE;
+      Fax                = FAX;
+      Phone              = PHONE;
+      Email              = EMAIL;
+      Currency           = CURRENCY;
+      CurrencyTarget     = CURRENCY_TARGET;
+      Language           = LANGUAGE;
+      Weblogin           = WEBLOGIN;
+      Webpw              = WEBPW;
+      Memo               = MEMO;
+      Url                = URL;
+      LogId              = LOG_ID;
+      CreatedBy          = CREATED_BY;
+      CreatedAt          = CREATED_AT;
+      LastChangedBy      = LAST_CHANGED_BY;
+      LastChangedAt      = LAST_CHANGED_AT;
+      LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+    }
+}

@@ -1,0 +1,5 @@
+@EndUserText.label: 'T200 Kunden Service'
+define service ZCS03_UI_T200 {
+  expose ZCS03_C_T200_CUSTOMERS;
+  expose ZCS03_C_T200_CUSTORDERS;
+}

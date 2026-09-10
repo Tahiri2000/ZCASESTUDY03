@@ -1,0 +1,192 @@
+@Metadata.layer: #CORE
+
+annotate view ZCS03_C_CUSTOMERS with
+{ 
+  @UI.facet: [
+    {
+      id: 'GeneralInfo',
+      purpose: #STANDARD,
+      type: #IDENTIFICATION_REFERENCE,
+      label: 'Allgemeine Informationen',
+      position: 10
+    }
+  ]
+
+  @UI: {
+    lineItem: [
+      { position: 10 },
+      {
+        type: #FOR_ACTION,
+        dataAction: 'ShowStatistic',
+        label: 'Statistik anzeigen',
+        position: 1
+      },
+      {
+        type: #FOR_ACTION,
+        dataAction: 'cancelOrders',
+        label: 'Bestellungen Stornieren',
+        position: 2
+      }
+    ],
+    identification: [ { position: 10 } ],
+    selectionField: [ { position: 10 } ]
+  }
+  Customerid;
+
+  @UI: {
+    lineItem: [ { position: 20 } ],
+    identification: [ { position: 20 } ],
+    selectionField: [ { position: 20 } ]
+  }
+  Company;
+
+  @UI: {
+    lineItem: [ { position: 30 } ],
+    identification: [ { position: 30 } ],
+    selectionField: [ { position: 30 } ]
+  }
+  Street;
+
+  @UI: {
+    lineItem: [ { position: 40 } ],
+    identification: [ { position: 40 } ],
+    selectionField: [ { position: 40 } ]
+  }
+  City;
+
+  @UI: {
+    lineItem: [ { position: 50 } ],
+    identification: [ { position: 50 } ],
+    selectionField: [ { position: 50 } ]
+  }
+  Postcode;
+
+  @Consumption.valueHelpDefinition: [
+    {
+      entity: {
+        name: 'ZCS03_I_COUNTRY_NACHBESSERUNG',
+        element: 'Country'
+      }
+    }
+  ]
+  @UI: {
+    lineItem: [ { position: 60, label: 'Country/Region' } ],
+    identification: [ { position: 60, label: 'Country/Region' } ],
+    selectionField: [ { position: 60 } ]
+  }
+  Country;
+
+  @UI: {
+    lineItem: [ { position: 70 } ],
+    identification: [ { position: 70 } ],
+    selectionField: [ { position: 70 } ]
+  }
+  Email;
+
+  @UI: {
+  lineItem: [
+    {
+      position: 80,
+      label: 'Anzahl der Bestellungen'
+    }
+  ],
+  identification: [
+    {
+      position: 80,
+      label: 'Anzahl der Bestellungen'
+    }
+  ]
+}
+NumberOfOrders;
+      @UI: {
+    lineItem: [
+      {
+        position: 90,
+        label: 'Umsatz'
+      }
+    ],
+    identification: [
+      {
+        position: 90,
+        label: 'Umsatz'
+      }
+    ]
+  }
+  SalesVolume;
+  @UI: {
+    lineItem: [
+      {
+        position: 100,
+        label: 'Umsatz Zielwährung'
+      }
+    ],
+    identification: [
+      {
+        position: 100,
+        label: 'Umsatz Zielwährung'
+      }
+    ]
+  }
+  SalesVolumeTarget;
+  
+  @UI: {
+    lineItem: [
+      {
+        type: #WITH_URL,
+        url: 'Weblogin',
+        position: 110
+      }
+    ],
+    fieldGroup: [
+      {
+        qualifier: 'General',
+        type: #WITH_URL,
+        url: 'Weblogin',
+        position: 110
+      }
+    ]
+  }
+  Weblogin;
+
+  @Consumption.valueHelpDefinition: [
+    {
+      entity: {
+        name: 'ZCS03_I_LANGUAGE_NACHBESSERUNG',
+        element: 'Language'
+      }
+    }
+  ]
+  @UI: {
+    identification: [ { position: 75, label: 'Sprache' } ],
+    selectionField: [ { position: 75 } ]
+  }
+  Language;
+
+  @UI: {
+    lineItem: [
+      {
+        type: #WITH_URL,
+        url: 'Url',
+        position: 120,
+        label: 'Url'
+      }
+    ],
+    identification: [
+      {
+        type: #WITH_URL,
+        url: 'Url',
+        position: 120,
+        label: 'Url'
+      }
+    ]
+  }
+  Url;
+
+  @UI: {
+    lineItem: [ { position: 130 } ],
+    identification: [ { position: 130 } ]
+  }
+  @EndUserText.label: 'VIP'
+  ZzVip;
+
+}

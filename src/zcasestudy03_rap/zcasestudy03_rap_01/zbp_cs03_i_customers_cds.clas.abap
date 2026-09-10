@@ -1,0 +1,5 @@
+CLASS zbp_cs03_i_customers_cds DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zcs03_i_customers_cds.
+ENDCLASS.
+
+CLASS zbp_cs03_i_customers_cds IMPLEMENTATION.
+ENDCLASS.

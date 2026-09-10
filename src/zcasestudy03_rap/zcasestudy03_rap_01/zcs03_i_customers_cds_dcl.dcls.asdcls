@@ -1,0 +1,8 @@
+@EndUserText.label: 'Zugriffskontrolle PLZ-Bereich Fiori Kunden (Basis)'
+@MappingRole: true
+define role zcs03_i_customers_cds_dcl {
+
+  grant select on ZCS03_I_CUSTOMERS_CDS
+    where (postcode) = aspect pfcg_auth (zcs03_plz, postcode, actvt = '03');
+
+}

@@ -1,0 +1,23 @@
+projection;
+strict ( 2 );
+
+use draft;
+
+define behavior for ZCS03_C_CUSTOMERS
+{
+ use create;
+ use update;
+ use delete;
+
+ use action Edit;
+ use action Activate;
+ use action Discard;
+ use action Resume;
+ use action Prepare;
+ use action cancelOrders;
+ use action ShowStatistic;
+ //use association _Orders;
+
+ field ( readonly ) SalesVolume, SalesVolumeTarget;
+
+}

@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SIA6" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <SIA6>
+    <MAIN_OBJECT>
+     <NAME>ZCS03_IAM_CUSTOMERS_EXT</NAME>
+     <TYPE>SIA6</TYPE>
+     <RESPONSIBLE>CB9980000019</RESPONSIBLE>
+     <MASTER_LANGUAGE>DE</MASTER_LANGUAGE>
+     <MASTER_SYSTEM>A9C</MASTER_SYSTEM>
+     <PACKAGE_REF>
+      <PACKAGE_NAME>ZCASESTUDY03_RAP_01</PACKAGE_NAME>
+     </PACKAGE_REF>
+     <ABAP_LANGU_VERSION>5</ABAP_LANGU_VERSION>
+    </MAIN_OBJECT>
+    <APP_ID>ZCS03_IAM_CUSTOMERS_EXT</APP_ID>
+    <APP_TYPE>EXT</APP_TYPE>
+    <ABAP_LANGUAGE_VERSION>5</ABAP_LANGUAGE_VERSION>
+    <SERVICE>
+     <item>
+      <REL_NAME>ZCS03_SD_CUSTOMERS_R</REL_NAME>
+      <REL_TYPE>G4BA</REL_TYPE>
+      <APP_ID>ZCS03_IAM_CUSTOMERS_EXT</APP_ID>
+      <SRVC_NAME>C663ADDEFD340FFB5B7D488702312B</SRVC_NAME>
+      <SRVC_TYPE>HT</SRVC_TYPE>
+      <TYPE_TEXT>OData V4</TYPE_TEXT>
+     </item>
+     <item>
+      <REL_NAME>ZCS03_UI_CUSTOMERS</REL_NAME>
+      <REL_TYPE>G4BA</REL_TYPE>
+      <APP_ID>ZCS03_IAM_CUSTOMERS_EXT</APP_ID>
+      <SRVC_NAME>EB4C4647F1A86C1E48B6E190C76610</SRVC_NAME>
+      <SRVC_TYPE>HT</SRVC_TYPE>
+      <TEXT>Service Binding for ZCS03_UI_CUSTOMERS</TEXT>
+      <TYPE_TEXT>OData V4</TYPE_TEXT>
+     </item>
+    </SERVICE>
+    <AUTH>
+     <item>
+      <AUTH_OBJECT>ZCS03_PLZ</AUTH_OBJECT>
+      <STATUS>U</STATUS>
+      <AUTH_ITEM>
+       <item>
+        <UUID>1hl2t0ErH9GokawGsqgNfg==</UUID>
+        <AUTH_OBJECT>ZCS03_PLZ</AUTH_OBJECT>
+        <AUTH_OBJECT_INSTANCE>0001</AUTH_OBJECT_INSTANCE>
+        <STATUS>U</STATUS>
+        <VALUES>
+         <item>
+          <FIELD>ACTVT</FIELD>
+          <VALUE>Display</VALUE>
+          <VALUES>
+           <item>
+            <UUID>1lRemUSbH+GpqM49mUVZgQ==</UUID>
+            <LOW_VALUE>03</LOW_VALUE>
+           </item>
+          </VALUES>
+          <TEXT>Activity</TEXT>
+          <STATUS>U</STATUS>
+          <IS_ACTVT>X</IS_ACTVT>
+         </item>
+         <item>
+          <FIELD>POSTCODE</FIELD>
+          <VALUE>22000-22200</VALUE>
+          <VALUES>
+           <item>
+            <UUID>1lRemUSbH+GpqM49mUV5gQ==</UUID>
+            <LOW_VALUE>22000</LOW_VALUE>
+            <HIGH_VALUE>22200</HIGH_VALUE>
+           </item>
+          </VALUES>
+          <TEXT>Postleitzahl</TEXT>
+          <STATUS>U</STATUS>
+         </item>
+        </VALUES>
+       </item>
+      </AUTH_ITEM>
+     </item>
+    </AUTH>
+    <PUBLISH_STATUS>p</PUBLISH_STATUS>
+    <RTYPE_MIG_STATUS>3</RTYPE_MIG_STATUS>
+   </SIA6>
+  </asx:values>
+ </asx:abap>
+</abapGit>

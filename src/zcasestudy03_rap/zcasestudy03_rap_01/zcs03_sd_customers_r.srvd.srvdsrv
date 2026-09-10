@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition PLZ-Test'
+define service ZCS03_SD_CUSTOMERS_R {
+  expose zcs03customers_r;
+}
